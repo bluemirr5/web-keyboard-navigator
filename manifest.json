@@ -1,0 +1,15 @@
+{
+  "name": "Google Search Keyboard Navigator",
+  "version": "1.0.0",
+  "description": "Chrome extension that provide the keyboard navigator in Google Search",
+  "icons": { "128": "icon.png" },
+  "background": { "scripts": ["background.js"] },
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*", "activeTab"
+  ],
+  "browser_action": {
+    "icon": "inactive.png",
+    "default_title": "This page is Google Search Page"
+  },
+  "manifest_version": 2
+}
