@@ -3,7 +3,7 @@ var resultIndex = 0;
 var resultPage = 0;
 var kbdMode = false;
 document.body.addEventListener('keydown', function(e) {
-  if(e.key === 'Escape'){
+  if(e.key === '/'){
     kbdMode = !kbdMode
     if(kbdMode) {
       resultPage = 0
@@ -19,7 +19,6 @@ document.body.addEventListener('keydown', function(e) {
     return;
   }
 
-  console.log(e);
 
   var resultItems = $('.g')
   if(e.key === 'ArrowDown') {
@@ -37,17 +36,14 @@ document.body.addEventListener('keydown', function(e) {
     e.stopPropagation();
     e.preventDefault();
   } else if(e.key === 'Enter') {
-    console.log($($(resultItems[resultIndex]).find('a')[0])[0])
     $($(resultItems[resultIndex]).find('a')[0])[0].click()
     e.stopPropagation();
     e.preventDefault();
   } else if(e.key === 'ArrowLeft') {
     var preBtn = $('#pnprev')[0]
-    console.log(preBtn);
     if(preBtn) preBtn.click()
   } else if(e.key === 'ArrowRight') {
     var nextBtn = $('#pnnext')[0]
-    console.log(nextBtn);
     if(nextBtn) nextBtn.click()
   }
 });
