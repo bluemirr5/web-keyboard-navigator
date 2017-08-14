@@ -23,6 +23,16 @@ function find(tab, updated) {
         });
       });
     }
+  } else if(tab.url.includes("search.naver.com")&&tab.url.includes("search.naver?")) {
+    chrome.browserAction.setIcon({path:"active.png"});
+    chrome.browserAction.setTitle({title: "This page is Naver Search Page"});
+    if(!excutedTabIds.includes(tab.id) || updated) {
+      excutedTabIds.push(tab.id)
+      chrome.tabs.executeScript(tab.id, { file: "jquery-3.2.1.js"}, function() {
+        chrome.tabs.executeScript(tab.id, { file:"naver_content_script.js"}, function() {
+        });
+      });
+    }
   } else {
     chrome.browserAction.setIcon({path:"inactive.png"});
     chrome.browserAction.setTitle({title: "This page is not Google Search Page"});
