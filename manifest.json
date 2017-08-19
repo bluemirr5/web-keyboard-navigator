@@ -1,7 +1,7 @@
 {
   "name": "Web Keyboard Navigator",
-  "version": "1.0.1",
-  "description": "Chrome extension that provide the keyboard navigator in Google Search",
+  "version": "1.0.2",
+  "description": "Chrome extension that provide the keyboard navigator in Google, Naver Search",
   "icons": { "128": "icon.png" },
   "background": { "scripts": ["background.js"] },
   "permissions": [
