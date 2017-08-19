@@ -9,7 +9,7 @@
   ],
   "browser_action": {
     "icon": "inactive.png",
-    "default_title": "This page is Google Search Page"
+    "default_title": "This page is Not Search Page"
   },
   "manifest_version": 2
 }
