@@ -8,41 +8,28 @@ var sections = $('.section')
 for(var i = 0; i < sections.length; i++) {
   var section = $(sections[i])
   var sectionClass = section.attr('class')
-  // if(
-  //   sectionClass.includes('sp_post')
-  //   || sectionClass.includes('ndic')
-  //   || sectionClass.includes('nsite')
-  //   || sectionClass.includes('kinn')
-  //   || sectionClass.includes('news')
-  //   || sectionClass.includes('magazine')
-  //   || sectionClass.includes('book_list')
-  //   || sectionClass.includes('greenmap')
-  //   || sectionClass.includes('sp_mobile')
-  //   || sectionClass.includes('academic')
-  //   || sectionClass.includes('sp_video')
-  //   || sectionClass.includes('blog')
-  //   || sectionClass.includes('webdoc')
-  //   || sectionClass.includes('content_search')
-  //   || sectionClass.includes('cafe')
-  //   || sectionClass.includes('book_body')
-  //   || sectionClass.includes('result_more')
-  // ) { // post
+  if(sectionClass.includes('sp_keyword') ||
+    sectionClass.includes('realtime2')
+  ) {
+    continue
+  }
     var sectionLi = section.find('li')
     for(var j = 0; j < sectionLi.length; j++) {
       pureTargets.push(sectionLi[j])
     }
-  // }
-  // console.log(section.attr('class'));
 }
 
 var targets = []
 for(var i = 0; i < pureTargets.length; i++) {
+  if($(pureTargets[i])[0].parentNode.parentNode.classList.contains('lst_cont') &&
+    $(pureTargets[i])[0].parentNode.parentNode.style.display === 'none'
+  ) {
+    continue
+  }
   targets.push($(pureTargets[i]))
 }
-console.log(targets);
 
 document.body.addEventListener('keydown', function(e) {
-  console.log(e.key);
   if(e.key === 'Escape'){
     kbdMode = !kbdMode
     if(kbdMode) {
@@ -93,8 +80,6 @@ function clearResultBorder() {
 }
 
 function activeAction() {
-  console.log('activeAction');
-  console.log(targets);
   if(resultIndex === targets.length) return;
   clearResultBorder()
   var target = targets[resultIndex]

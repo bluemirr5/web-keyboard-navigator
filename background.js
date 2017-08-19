@@ -14,7 +14,7 @@ chrome.tabs.onSelectionChanged.addListener(function(tabId, info) {
 
 function find(tab, updated) {
   if(tab.url.includes("www.google")&&tab.url.includes("search?")) {
-    chrome.browserAction.setIcon({path:"active.png"});
+    chrome.browserAction.setIcon({path:"google.png"});
     chrome.browserAction.setTitle({title: "This page is Google Search Page"});
     if(!excutedTabIds.includes(tab.id) || updated) {
       excutedTabIds.push(tab.id)
@@ -24,7 +24,7 @@ function find(tab, updated) {
       });
     }
   } else if(tab.url.includes("search.naver.com")&&tab.url.includes("search.naver?")) {
-    chrome.browserAction.setIcon({path:"active.png"});
+    chrome.browserAction.setIcon({path:"naver.png"});
     chrome.browserAction.setTitle({title: "This page is Naver Search Page"});
     if(!excutedTabIds.includes(tab.id) || updated) {
       excutedTabIds.push(tab.id)
