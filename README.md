@@ -1,9 +1,9 @@
-# google-search-keyboard-navigator
+# web-keyboard-navigator
 
-## Chrome extension that provide the keyboard navigator in Google Search
+## This extension that provide the keyboard navigator in Google, Naver Search
 
 ### 1. Search by Google
-### 2. Press '/' for [Keyboard Mode]
+### 2. Press '/' for [Keyboard Mode] {Presss 'ESC' in Naver}
    * if you press '/' again return [Normal Mode]
 ### 3. move by Keyboard
 * Press 'ArrowDown' => next result
