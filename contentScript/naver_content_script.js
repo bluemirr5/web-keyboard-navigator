@@ -18,10 +18,13 @@ for(var i = 0; i < sections.length; i++) {
   ) {
     continue
   }
-    var sectionLi = section.find('li')
-    for(var j = 0; j < sectionLi.length; j++) {
-      pureTargets.push(sectionLi[j])
-    }
+  var sectionLi = section.find('li')
+  for(var j = 0; j < sectionLi.length; j++) {
+    pureTargets.push(sectionLi[j])
+  }
+  var more = section.find('a.go_more')[0]
+  if(more != null)
+  pureTargets.push(more)
 }
 
 var targets = []
@@ -31,6 +34,17 @@ for(var i = 0; i < pureTargets.length; i++) {
   ) {
     continue
   }
+
+  if($(pureTargets[i])[0].parentNode.classList.contains('score_list')
+     || $(pureTargets[i])[0].parentNode.classList.contains('bar_list')
+     || $(pureTargets[i])[0].parentNode.classList.contains('review_list')
+     || $(pureTargets[i])[0].parentNode.classList.contains('ly_other_group')
+     || $(pureTargets[i])[0].parentNode.style.display === 'none'
+     || $(pureTargets[i])[0].parentNode.parentNode.style.display === 'none'
+  ) {
+    continue
+  }
+
   targets.push($(pureTargets[i]))
 }
 
@@ -66,14 +80,20 @@ document.body.addEventListener('keydown', function(e) {
     e.stopPropagation();
     e.preventDefault();
   } else if(e.key === 'Enter') {
-    $($(targets[resultIndex]).find('a')[0])[0].click()
+    if(targets[resultIndex][0] != null &&
+      (targets[resultIndex][0].nodeName === 'a' || targets[resultIndex][0].nodeName === 'A')
+    ) {
+      $($(targets[resultIndex]))[0].click()
+    } else {
+      $($(targets[resultIndex]).find('a')[0])[0].click()
+    }
     e.stopPropagation();
     e.preventDefault();
   } else if(e.key === 'ArrowLeft') {
-    var preBtn = $('#pnprev')[0]
+    var preBtn = $('a.pre')[0]
     if(preBtn) preBtn.click()
   } else if(e.key === 'ArrowRight') {
-    var nextBtn = $('#pnnext')[0]
+    var nextBtn = $('a.next')[0]
     if(nextBtn) nextBtn.click()
   }
 });
