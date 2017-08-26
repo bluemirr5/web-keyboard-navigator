@@ -28,6 +28,14 @@ function find(tab, updated) {
       chrome.tabs.executeScript(tab.id, { file: "contentScript/naver_content_script.js"}, function() {
       });
     }
+  } else if(tab.url.includes("www.kbdmania.net")) {
+      chrome.browserAction.setIcon({path:"imgs/naver.png"});
+      chrome.browserAction.setTitle({title: "This page is KdbMania"});
+      if(excutedTabIds.indexOf(tab.id) == -1 || updated) {
+          if(excutedTabIds.indexOf(tab.id) == -1) excutedTabIds.push(tab.id)
+          chrome.tabs.executeScript(tab.id, { file: "contentScript/kbdmania.js"}, function() {
+          });
+      }
   } else {
     chrome.browserAction.setIcon({path:"imgs/inactive.png"});
     chrome.browserAction.setTitle({title: "This page is not Google Search Page"});
