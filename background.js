@@ -29,7 +29,7 @@ function find(tab, updated) {
       });
     }
   } else if(tab.url.includes("www.kbdmania.net")) {
-      chrome.browserAction.setIcon({path:"imgs/naver.png"});
+      chrome.browserAction.setIcon({path:"imgs/kbdmania.png"});
       chrome.browserAction.setTitle({title: "This page is KdbMania"});
       if(excutedTabIds.indexOf(tab.id) == -1 || updated) {
           if(excutedTabIds.indexOf(tab.id) == -1) excutedTabIds.push(tab.id)
