@@ -67,7 +67,7 @@ $(document).ready(function(){
     }
 
     if(e.key === 'ArrowDown') {
-      if(resultIndex != targets.length) {
+      if(resultIndex !== targets.length) {
         resultIndex++;
       }
       activeAction()
@@ -81,7 +81,7 @@ $(document).ready(function(){
       e.stopPropagation();
       e.preventDefault();
     } else if(e.key === 'Enter') {
-      if(targets[resultIndex][0] != null &&
+      if(targets[resultIndex][0] !== null &&
         (targets[resultIndex][0].nodeName === 'a' || targets[resultIndex][0].nodeName === 'A')
       ) {
         $($(targets[resultIndex]))[0].click()
@@ -111,6 +111,6 @@ $(document).ready(function(){
     target.css({"border-color": "#00ab33",
     "border-width":"1.5px",
     "border-style":"solid"});
-    $('html').stop().animate({scrollTop:target.offset().top-100})
+    $('html,body').stop().animate({scrollTop: target.offset().top - 100});
   }
 });

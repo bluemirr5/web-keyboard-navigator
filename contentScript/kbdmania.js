@@ -126,7 +126,7 @@ $(document).ready(function(){
     target.css({"border-color": "#634ECA",
     "border-width":"1.5px",
     "border-style":"solid"});
-    $('html').stop().animate({scrollTop:target.offset().top-100})
+    $('html,body').stop().animate({scrollTop:target.offset().top-100})
 
   }
 });
